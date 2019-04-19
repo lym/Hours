@@ -9,10 +9,10 @@
       .form-inputs.edit-user
         = f.input :first_name, required: true, autofocus: true
         = f.input :last_name, required: true
-        = f.input :email, required: true
-        = f.input :password, autocomplete: "off", hint: t("registration.hint.blank"), required: false
-        = f.input :password_confirmation, required: false
-        = f.input :current_password, hint: t("registration.hint.current_password"), required: true
+        /= f.input :email, required: true
+        /= f.input :password, autocomplete: "off", hint: t("registration.hint.blank"), required: false
+        /= f.input :password_confirmation, required: false
+        /= f.input :current_password, hint: t("registration.hint.current_password"), required: true
       .form-actions
         = f.button :submit, t("registration.update_button"), data: { disable_with: t("loader.saving") }
     = link_to t("back"), :back

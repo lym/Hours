@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       prev_unconfirmed_email = @user.unconfirmed_email
     end
 
-    if @user.update_with_password(user_params)
+    if @user.update_without_password(user_params)
       flash_key = if update_needs_confirmation?(@user, prev_unconfirmed_email)
                     :update_needs_confirmation
                   else

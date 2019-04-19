@@ -1,6 +1,17 @@
 .outer
   .container
-    %h1= title
+    %h1= t("users.edit", resource_name: @user.class.model_name.human)
+    = simple_form_for(@user) do |f|
+      = f.error_notification
+      .form-inputs.edit-user
+        /= f.input :first_name, required: true, autofocus: true
+        /= f.input :last_name, required: true
+        = f.input :email, required: true
+        = f.input :password, autocomplete: "off", hint: t("registration.hint.blank"), required: false
+        = f.input :password_confirmation, required: false
+        = f.input :current_password, hint: t("registration.hint.current_password"), required: true
+      .form-actions
+        = f.button :submit, t("registration.update_button"), data: { disable_with: t("loader.saving") }
     .danger-zone
       %h2= t("account.danger_zone")
       %p= t("account.warning", subdomain: @current_domain)
