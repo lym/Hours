@@ -20,11 +20,30 @@ class AccountsController < ApplicationController
 
   def edit
     @current_domain = request.host
+    @user = current_user
   end
 
   def destroy
     current_account.destroy
     Apartment::Tenant.drop(current_subdomain)
+  end
+
+  def update
+    @user = current_user
+    if @user.respond_to?(:unconfirmed_email)
+      prev_unconfirmed_email = @user.unconfirmed_email
+    end
+
+    if @user.update_with_password(user_params)
+      flash_key = if update_needs_confirmation?(@user, prev_unconfirmed_email)
+                    :update_needs_confirmation
+                  else
+                    :updated
+                  end
+      redirect_to edit_user_path, notice: t(".#{flash_key}")
+    else
+      render :edit
+    end
   end
 
   private

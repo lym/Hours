@@ -196,7 +196,7 @@ en:
   project_created: Project successfully created
   project_updated: Project successfully updated
   registration:
-    edit: Edit %{resource_name}
+    edit: Edit Profile
     gravatar_instructions_html: Update your profile pic on <a href="https://www.gravatar.com"
       target="_blank">Gravatar</a>
     hint:
@@ -234,7 +234,7 @@ en:
     activities: Activities
     application: Hours
     accounts:
-      edit: Edit Account
+      edit: Edit User Settings
     archives:
       index: Archives
     billables:
@@ -261,6 +261,7 @@ en:
     invite: Invite User
     invitation_sent_at: Invited %{time_ago} ago
     confirm: Confirm
+    edit: Edit %{resource_name} Settings
     update:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: You updated your account successfully.
